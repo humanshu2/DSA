@@ -6,17 +6,13 @@ public:
         for(int i=0;i<nums.size();i++){
             if(nums[i]<=day){
                 cnt++;
-                if(cnt==k){
-                    noOfB++;
-                    cnt=0;
-                }
             }
             else{
-                
+                noOfB+=(cnt/k);
                 cnt=0;
             }
         }
-        
+        noOfB+=(cnt/k);
         return noOfB>=m;
     }
     int minDays(vector<int>& bloomDay, int m, int k) {
@@ -30,11 +26,9 @@ public:
         }
         int left=mini;
         int right=maxi;
-        int result=-1;
         while(left<=right){
             int mid=(left+right)/2;
            if(possible(bloomDay,mid,m,k)){
-            result=mid;
             right=mid-1;
            }
            else{
@@ -42,6 +36,7 @@ public:
            }
            
         }
-        return result;
+        return left;
+        
     }
 };
