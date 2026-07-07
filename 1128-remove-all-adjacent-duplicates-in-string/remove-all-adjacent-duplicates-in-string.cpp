@@ -4,7 +4,7 @@ public:
         stack<char> st;
         for(char ch:s){
             if(!st.empty() && st.top()==ch){
-                st.top();
+                
                 if(st.top()==ch){
                     st.pop();
                 }
