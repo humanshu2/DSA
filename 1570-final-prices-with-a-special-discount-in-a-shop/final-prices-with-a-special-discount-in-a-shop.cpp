@@ -8,13 +8,9 @@ public:
             while(!st.empty() && st.top()>prices[i]){
                 st.pop();
             }
-            ans[i]=st.empty()?0:st.top();
+            ans[i]=prices[i]-(st.empty()?0:st.top());
             st.push(prices[i]);
         }
-      vector<int> result(n);
-      for(int i=0;i<n;i++){
-        result[i]=prices[i]-ans[i];
-      }  
-return result;
+  return ans;
     }
 };
